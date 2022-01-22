@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main class="main">
+        <div class="main-heading">
+            <h1>Etch-a-Sketch</h1>
+        </div>
+        <div class="main-content">
+            <div class="controls">
+                <h2 class="controls-heading">Controls</h2>
+                <div class="color-buttons">
+                    <button class="random">
+                        <h3>Random Color</h3>
+                    </button>
+                    <button class="pick-color">
+                        <h3>Pick a Color <span><input type="color" id="color-input" name="input" value="#111"></span>
+                        </h3>
+                    </button>
+                </div>
+                <div class="slide-container">
+                    <input type="range" min="1" max="64" value="50" class="slider" id="myRange">
+                    <p>Grid-dimension: <span id="dimensions"></span></p>
+                </div>
+                <button class="clear">
+                    <h3>Clear</h3>
+                </button>
+            </div>
+            <div class="grid-container">
+            </div>
+        </div>
+        </div>
+    </main>
+</body>
+
+</html>
