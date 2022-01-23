@@ -117,6 +117,6 @@ function changeGrid(e) {
 
 slider.addEventListener('input', changeGrid);
 randomButton.addEventListener('click', randomDrawingEffect);
-colorPicker.addEventListener('change', stillDrawingEffect);
+colorPicker.addEventListener('mouseup', stillDrawingEffect);
 clearButtonElement.addEventListener('click', clearGrid);
 eraserButtonElement.addEventListener('click', eraserEffect);
