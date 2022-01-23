@@ -2,7 +2,8 @@ const slider = document.querySelector('.slider');
 const output = document.getElementById('dimensions');
 const grid = document.querySelector('.grid-container');
 const randomButton = document.querySelector('.random');
-const colorPicker = document.getElementById('color-input');
+const colorInput = document.getElementById('color-input');
+const colorPickerElement = document.querySelector('.pick-color')
 const clearButtonElement = document.querySelector('.clear');
 const eraserButtonElement = document.querySelector('.eraser');
 
@@ -117,6 +118,7 @@ function changeGrid(e) {
 
 slider.addEventListener('mouseup', changeGrid);
 randomButton.addEventListener('click', randomDrawingEffect);
-colorPicker.addEventListener('change', stillDrawingEffect);
+colorInput.addEventListener('change', stillDrawingEffect);
 clearButtonElement.addEventListener('click', clearGrid);
 eraserButtonElement.addEventListener('click', eraserEffect);
+colorPickerElement.addEventListener('click', stillDrawingEffect);
