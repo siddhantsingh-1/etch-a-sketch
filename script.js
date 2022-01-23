@@ -4,6 +4,7 @@ const grid = document.querySelector('.grid-container');
 const randomButton = document.querySelector('.random');
 const colorPicker = document.getElementById('color-input');
 const clearButtonElement = document.querySelector('.clear');
+const eraserButtonElement = document.querySelector('.eraser');
 
 slider.oninput = function() {
     output.textContent = `${this.value} x ${this.value}`;
@@ -26,12 +27,17 @@ function stillBackground(e) {
     e.target.style.backgroundColor = stillColor;
 }
 
+function eraserBackground(e) {
+    e.target.style.backgroundColor = "#fff";
+}
+
 function randomDrawingEffect() {
     const divs = document.querySelectorAll('.grid-item');
 
     //Removing any previous event listeners
     divs.forEach(div => {
         div.removeEventListener('mouseover', stillBackground);
+        div.removeEventListener('mouseover', eraserBackground);
     })
 
     //Creating the drawing board effect
@@ -46,11 +52,27 @@ function stillDrawingEffect(){
     //Removing any previous event listeners
     divs.forEach(div => {
         div.removeEventListener('mouseover', randomBackground);
+        div.removeEventListener('mouseover', eraserBackground);
     });
 
     //Creating the drawing board effect
     divs.forEach(div => {
         div.addEventListener('mouseover', stillBackground);
+    });
+}
+
+function eraserEffect() {
+    const divs = document.querySelectorAll('.grid-item');
+
+    //Removing any previous event listeners
+    divs.forEach(div => {
+        div.removeEventListener('mouseover', randomBackground);
+        div.removeEventListener('mouseover', stillBackground);
+    });
+
+    //Creating the drawing board effect
+    divs.forEach(div => {
+        div.addEventListener('mouseover', eraserBackground);
     });
 }
 
@@ -95,12 +117,6 @@ function changeGrid(e) {
 
 slider.addEventListener('input', changeGrid);
 randomButton.addEventListener('click', randomDrawingEffect);
-randomButton.addEventListener('click', clearGrid);
 colorPicker.addEventListener('change', stillDrawingEffect);
-colorPicker.addEventListener('change', clearGrid);
 clearButtonElement.addEventListener('click', clearGrid);
-
-
-
-
-
+eraserButtonElement.addEventListener('click', eraserEffect);
